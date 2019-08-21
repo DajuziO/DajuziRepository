@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" > 
+<suite name="suite" verbose = "1" >
+	<parameter name="pagetime" value="10" />
+	<parameter name="waittime" value="10" />
+	<test name="智能酒柜大屏测试" >
+		<classes>
+			<!--<class name="test.test">-->
+				<!--<methods>-->
+					<!--<include name="testall" />-->
+					<!--&lt;!&ndash;<include name="closeapp" />&ndash;&gt;-->
+				<!--</methods>-->
+
+			<class name="test.test01">
+				<methods>
+					<include name="testHeater" />
+					<!--<include name="closeapp" />-->
+				</methods>
+			</class>
+		</classes>
+	</test>
+	<listeners>
+			<listener class-name="org.uncommons.reportng.HTMLReporter" />
+			<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
+		    <!--  <listener class-name="app.ui.tool.TestNGListener" />--> 
+	</listeners>
+</suite>
+
+
+
+   
