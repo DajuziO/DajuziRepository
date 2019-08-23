@@ -68,18 +68,18 @@
 			<version>1.6.1</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.uncommons</groupId>
-			<artifactId>reportng</artifactId>
-			<version>1.1.4</version>
-			<scope>test</scope>
-			<exclusions>
-				<exclusion>
-					<groupId>org.testng</groupId>
-					<artifactId>testng</artifactId>
-				</exclusion>
-			</exclusions>
-		</dependency>
+		<!--<dependency>-->
+			<!--<groupId>org.uncommons</groupId>-->
+			<!--<artifactId>reportng</artifactId>-->
+			<!--<version>1.1.4</version>-->
+			<!--<scope>test</scope>-->
+			<!--<exclusions>-->
+				<!--<exclusion>-->
+					<!--<groupId>org.testng</groupId>-->
+					<!--<artifactId>testng</artifactId>-->
+				<!--</exclusion>-->
+			<!--</exclusions>-->
+		<!--</dependency>-->
 
 		<dependency>
 			<groupId>org.apache.velocity</groupId>
@@ -140,6 +140,24 @@
 		</dependency>
 
 
+		<!-- 尝试优化生成的报告 -->
+		<dependency>
+			<groupId>com.relevantcodes</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>2.41.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.vimalselvam</groupId>
+			<artifactId>testng-extentsreport</artifactId>
+			<version>1.3.1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.aventstack</groupId>
+			<artifactId>extentreports</artifactId>
+			<version>3.0.6</version>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -157,26 +175,26 @@
 				</configuration>
 			</plugin>
 
-			<!-- 添加插件,添加ReportNg的监听器，修改最后的TestNg的报告 -->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<version>2.5</version>
-				<configuration>
-					<properties>
-						<property>
-							<name>usedefaultlisteners</name>
-							<value>false</value>
-						</property>
-						<property>
-							<name>listener</name>
-							<value>org.uncommons.reportng.HTMLReporter,  org.uncommons.reportng.JUnitXMLReporter</value>
-						</property>
-					</properties>
-					<workingDirectory>target/</workingDirectory>
-					<forkMode>always</forkMode>
-				</configuration>
-			</plugin>
+			<!--&lt;!&ndash; 添加插件,添加ReportNg的监听器，修改最后的TestNg的报告 &ndash;&gt;-->
+			<!--<plugin>-->
+				<!--<groupId>org.apache.maven.plugins</groupId>-->
+				<!--<artifactId>maven-surefire-plugin</artifactId>-->
+				<!--<version>2.5</version>-->
+				<!--<configuration>-->
+					<!--<properties>-->
+						<!--<property>-->
+							<!--<name>usedefaultlisteners</name>-->
+							<!--<value>false</value>-->
+						<!--</property>-->
+						<!--<property>-->
+							<!--<name>listener</name>-->
+							<!--<value>org.uncommons.reportng.HTMLReporter,  org.uncommons.reportng.JUnitXMLReporter</value>-->
+						<!--</property>-->
+					<!--</properties>-->
+					<!--<workingDirectory>target/</workingDirectory>-->
+					<!--<forkMode>always</forkMode>-->
+				<!--</configuration>-->
+			<!--</plugin>-->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>

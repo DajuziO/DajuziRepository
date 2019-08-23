@@ -4,8 +4,12 @@ import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
 import org.apache.http.Header;
 import org.apache.http.HttpEntity;
+import org.apache.http.NameValuePair;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
+import org.apache.http.client.methods.HttpPost;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClients;
 import org.apache.http.util.EntityUtils;
@@ -13,10 +17,14 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 
 public class HttpClientUtils {
     CloseableHttpClient httpclient;
     HttpGet httpGet;
+    HttpPost httpPost;
     CloseableHttpResponse httpResponse;
     int responseCode;
     JSONObject responseBody;
@@ -58,5 +66,20 @@ public class HttpClientUtils {
 //        System.out.println("This is your response code" + responseCode);
         return responseCode;
     }
+    //通过httpclient获取post请求的反馈
+    public void sendPost(String url, List<NameValuePair> params, HashMap<String, String> headers) throws ClientProtocolException, IOException{
+        //创建post请求对象
+        httpPost = new HttpPost(url);
 
+        //设置请求主体格式
+        httpPost.setEntity(new UrlEncodedFormEntity(params, "UTF-8"));
+        //设置头部信息
+        Set<String> set = headers.keySet();
+        for(Iterator<String> iterator = set.iterator(); iterator.hasNext();){
+            String key = iterator.next();
+            String value = headers.get(key);
+            httpPost.addHeader(key, value);
+        }
+        httpResponse = httpclient.execute(httpPost);
+    }
 }
