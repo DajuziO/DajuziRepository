@@ -95,7 +95,7 @@ public class BrowserFactory {
         org.openqa.selenium.firefox.internal.ProfilesIni allProfiles = new org.openqa.selenium.firefox.internal.ProfilesIni();
         org.openqa.selenium.firefox.FirefoxProfile profile = allProfiles.getProfile("default");
         System.setProperty("webdriver.gecko.driver", firefox);
-        driver = new org.openqa.selenium.firefox.FirefoxDriver(profile);
+//        driver = new org.openqa.selenium.firefox.FirefoxDriver(profile);
         System.out.println("启动默认配置Firefox浏览器");
 	}
 }

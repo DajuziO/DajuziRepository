@@ -11,18 +11,21 @@
 					<!--&lt;!&ndash;<include name="closeapp" />&ndash;&gt;-->
 				<!--</methods>-->
 
-			<class name="test.test01">
+			<class name="WebAutoTest.samples.HttpClientTest">
 				<methods>
-					<include name="testHeater" />
+					<include name="gethttpclentTest" />
 					<!--<include name="closeapp" />-->
 				</methods>
 			</class>
 		</classes>
 	</test>
 	<listeners>
-			<listener class-name="org.uncommons.reportng.HTMLReporter" />
-			<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />
-		    <!--  <listener class-name="app.ui.tool.TestNGListener" />--> 
+			<!--<listener class-name="org.uncommons.reportng.HTMLReporter" />-->
+			<!--<listener class-name="org.uncommons.reportng.JUnitXMLReporter" />-->
+		    <!--  <listener class-name="app.ui.tool.TestNGListener" />-->
+		<!--ExtentTestNGIReportListener报告监听设置-->
+		<listener class-name="Utils.ExtentTestNGIReportListener"/>
+
 	</listeners>
 </suite>
 
